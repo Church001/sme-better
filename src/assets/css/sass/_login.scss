@@ -1,0 +1,337 @@
+.auth_layout {
+  display: flex;
+  height: 900px;
+  width: 100%;
+  background-color: grey;
+
+  .auth_loading {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba($theme-color-1, 0.2);
+    border-radius: 50%;
+    border-top-color: $theme-color-1;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+    left: calc(50% - 15px);
+    top: calc(50% - 15px);
+    position: fixed;
+    z-index: 1;
+  }
+  // +++++++++++++++++++++Login Card++++++++++++++++++
+  .auth_card {
+    flex-grow: 1;
+    display: flex;
+    height: 900px;
+    background: #2d74da;
+
+    // +++++++++++++Left Side+++++++++++++++++++++++++
+    .form_side {
+      display: flex;
+      flex-direction: column;
+      width: 540px;
+      height: 100%;
+
+      button {
+        @extend %button_placeholder;
+        background-color: transparent;
+        color: #ffffff;
+      }
+
+      .sme_better {
+        width: 180px;
+        height: 25px;
+        margin-left: 64.5px;
+        margin-top: 70px;
+        margin-right: 295px;
+        color: #ffffff;
+
+        p {
+          font-family: Montserrat;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 19.5446px;
+          line-height: 24px;
+          text-align: center;
+          letter-spacing: 0.21em;
+        }
+      }
+
+      .business_manager {
+        width: 353px;
+        height: 33px;
+        margin-top: 90px;
+        margin-left: 81px;
+        color: #ffffff;
+        p {
+          font-family: Avenir Next;
+          font-size: 20px;
+          line-height: 33px;
+        }
+      }
+
+      .email_box {
+        margin-left: 79.5px;
+        margin-top: 26px;
+        margin-right: 80px;
+        p {
+          font-family: Avenir Next;
+          font-size: 14px;
+          line-height: 19px;
+          display: flex;
+          align-items: flex-end;
+          text-transform: capitalize;
+          color: #ffffff;
+        }
+
+        input {
+          @extend %input_placeholder;
+          border: 0.997541px solid #e0e0e0;
+        }
+      }
+
+      .password_box {
+        margin-left: 79.5px;
+        margin-top: 26px;
+
+        .pwd_mini_box {
+          position: relative;
+        }
+
+        p {
+          font-family: Avenir Next;
+          font-size: 14px;
+          line-height: 19px;
+          display: flex;
+          align-items: flex-end;
+          text-transform: capitalize;
+          color: #ffffff;
+        }
+
+        input {
+          @extend %input_placeholder;
+          border: 0.997541px solid #e0e0e0;
+          position: relative;
+        }
+
+        .eye_icon {
+          position: absolute;
+          width: 18.73px;
+          height: 16.56px;
+          margin-right: 14.37px;
+          margin-top: -30px;
+          margin-left: 341.4px;
+        }
+      }
+
+      .sign_up {
+        display: flex;
+        width: 262px;
+        height: 22px;
+        margin-left: 154px;
+        margin-top: 26px;
+        margin-right: 133.4px;
+        .p1 {
+          margin-right: 9px;
+          width: 187px;
+          height: 22px;
+          flex-grow: 1;
+          p {
+            font-family: Avenir Next;
+            font-size: 15px;
+            line-height: 22px;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            opacity: 0.5;
+          }
+        }
+        .p2 {
+          width: 64px;
+          cursor: pointer;
+          flex-grow: 1;
+          p {
+            font-family: Avenir Next;
+            font-size: 16px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+          }
+        }
+      }
+
+      .forgot_password {
+        width: 144px;
+        height: 22px;
+        margin-top: 26px;
+        margin-left: 199.5px;
+        cursor: pointer;
+        color: #ffffff;
+        p {
+          font-family: Avenir Next;
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+
+      .google_btn {
+        button {
+          background-color: #ffffff;
+          color: #454749;
+          mix-blend-mode: normal;
+          opacity: 0.96;
+          @extend %button_placeholder;
+
+          .g_img {
+            height: 16.73px;
+            width: 16.76px;
+            margin-left: 105px;
+            margin: 13.6px 0 0 105px;
+          }
+        }
+      }
+    }
+
+    // +++++++++++Right Side++++++++++++++++++++++++
+    .image_side {
+      display: flex;
+      flex-direction: column;
+      background-color: #ffffff;
+      width: 100%;
+
+      .image_box {
+        width: 150px;
+        height: 150px;
+        background-color: green;
+      }
+
+      .organise_cust {
+        color: #2d74da;
+        width: 400px;
+        height: 33px;
+        margin-left: 250px;
+        margin-top: 185px;
+        margin-right: 250px;
+        p {
+          font-family: Avenir Next;
+          font-size: 20px;
+          line-height: 33px;
+        }
+      }
+
+      .group_image {
+        width: 420.7px;
+        height: 344.5px;
+        margin-top: 62px;
+        margin-left: 240px;
+        position: relative;
+        .search_icon {
+          margin-top: 12.66px;
+          margin-left: 58.7px;
+          position: absolute;
+        }
+        .pool_icon {
+          position: absolute;
+        }
+        .flower_icon {
+          position: absolute;
+          margin-left: 298.37px;
+          margin-top: 156.85px;
+          margin-right: 40.15px;
+        }
+        .paper_icon {
+        }
+      }
+
+      .dots_icon {
+        margin-top: 87.92px;
+        margin-left: 420.5px;
+        margin-bottom: 180.5px;
+      }
+    }
+
+    .input_error {
+      margin-left: 79.5px;
+      margin-top: 26px;
+      margin-right: 80px;
+      .pwd_mini_box {
+        position: relative;
+      }
+      p {
+        font-family: Avenir Next;
+        font-size: 14px;
+        line-height: 19px;
+        display: flex;
+        align-items: flex-end;
+        text-transform: capitalize;
+        // color: #ffffff;
+      }
+
+      color: red;
+      input {
+        @extend %input_placeholder;
+        border: 0.997541px solid red;
+      }
+    }
+
+    .input_error_p {
+      margin-left: 79.5px;
+      margin-top: 26px;
+      margin-right: 80px;
+      p {
+        font-family: Avenir Next;
+        font-size: 14px;
+        line-height: 19px;
+        display: flex;
+        align-items: flex-end;
+        text-transform: capitalize;
+        // color: #ffffff;
+      }
+
+      color: red;
+      input {
+        @extend %input_placeholder;
+        border: 0.997541px solid red;
+        position: relative;
+      }
+
+      .eye_icon {
+        position: absolute;
+        width: 18.73px;
+        height: 16.56px;
+        margin-right: 14.37px;
+        margin-top: -30px;
+        margin-left: 341.4px;
+      }
+    }
+  }
+}
+
+// Placeholder for button
+%button_placeholder {
+  width: 380px;
+  height: 46px;
+  margin-top: 25px;
+  margin-left: 79.5px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+  p {
+    font-family: Avenir Next;
+    font-size: 14px;
+    line-height: 19px;
+    margin: 13.46px 33.73px;
+  }
+}
+
+%input_placeholder {
+  width: 380px;
+  height: 46px;
+  background: #ffffff;
+  box-sizing: border-box;
+  border-radius: 3.99016px;
+  margin-left: 79.5;
+  padding: 11px 14.5px 13px 16.47px;
+}
