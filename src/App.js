@@ -1,29 +1,12 @@
 import React, { Component, Suspense } from 'react';
-import { connect } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom';
-import { IntlProvider } from 'react-intl';
 import AppLocale from './lang';
+import { IntlProvider } from 'react-intl';
 import ColorSwitcher from './components/common/ColorSwitcher';
 import NotificationContainer from './components/common/react-notifications/NotificationContainer';
 import { isMultiColorActive } from './constants/defaultValues';
 import { getDirection } from './helpers/Utils';
-import { ProtectedRoute } from './components/utils/utils';
-
-const ViewMain = React.lazy(() =>
-  import(/* webpackChunkName: "views" */ './views'),
-);
-const ViewApp = React.lazy(() =>
-  import(/* webpackChunkName: "views-app" */ './views/app'),
-);
-const ViewError = React.lazy(() =>
-  import(/* webpackChunkName: "views-error" */ './views/error'),
-);
-const LoginView = React.lazy(() => import('./views/Login'));
+import Routes from './Routes';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +22,7 @@ class App extends Component {
   }
 
   render() {
-    const { locale, isLoggedin } = this.props;
+    const { locale } = this.props;
     const currentAppLocale = AppLocale[locale];
     return (
       <div className='h-100'>
@@ -51,31 +34,7 @@ class App extends Component {
             <NotificationContainer />
             {isMultiColorActive && <ColorSwitcher />}
             <Suspense fallback={<div className='loading' />}>
-              <Router>
-                <Switch>
-                  <Route
-                    path='/login'
-                    render={props => <LoginView {...props} />}
-                  />
-                  <ProtectedRoute
-                    path='/app'
-                    authUser={isLoggedin}
-                    component={ViewApp}
-                  />
-                  <Route
-                    path='/error'
-                    exact
-                    render={props => <ViewError {...props} />}
-                  />
-                  <ProtectedRoute
-                    path='/'
-                    authUser={isLoggedin}
-                    exact
-                    component={ViewMain}
-                  />
-                  <Redirect to='/error' />
-                </Switch>
-              </Router>
+              <Routes />
             </Suspense>
           </React.Fragment>
         </IntlProvider>
@@ -83,12 +42,8 @@ class App extends Component {
     );
   }
 }
-
-const mapStateToProps = ({ settings, authReducer }) => {
+const mapStateToProps = ({ settings }) => {
   const { locale } = settings;
-  const { isLoggedin } = authReducer;
-  return { locale, isLoggedin };
+  return { locale };
 };
-const mapActionsToProps = {};
-
-export default connect(mapStateToProps, mapActionsToProps)(App);
+export default connect(mapStateToProps, null)(App);

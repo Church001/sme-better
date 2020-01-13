@@ -5,14 +5,14 @@ const Start = React.lazy(() =>
   import(/* webpackChunkName: "start" */ './start')
 );
 const Gogo = ({ match }) => (
-  <Suspense fallback={<div className="loading" />}>
+  <Suspense fallback={<div className='loading' />}>
     <Switch>
       <Redirect exact from={`${match.url}/`} to={`${match.url}/start`} />
       <Route
         path={`${match.url}/start`}
         render={props => <Start {...props} />}
       />
-      <Redirect to="/error" />
+      <Redirect to='/error' />
     </Switch>
   </Suspense>
 );

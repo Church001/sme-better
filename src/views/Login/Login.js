@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 // import { Row } from 'reactstrap';
 import { connect } from 'react-redux';
-import { EyeIcon, GoogleIcon, PaperIcon, DotsIcon } from '../components/svg';
-import { loginAction } from '../redux/actions';
-import { verifyEmail, verifyLength } from '../components/utils/utils';
+import { EyeIcon, GoogleIcon, PaperIcon, DotsIcon } from '../../components/svg';
+import { loginAction } from '../../redux/actions';
+import { verifyEmail, verifyLength } from '../../components/utils/utils';
 
 class Login extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Login extends Component {
       toggleVisibility: false,
       error: {},
       usernameError: false,
-      passwordError: false,
+      passwordError: false
     };
   }
 
@@ -33,31 +33,31 @@ class Login extends Component {
 
   handleOnchange = e => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
   handleToggleVisibility = () => {
     this.setState({
-      toggleVisibility: !this.state.toggleVisibility,
+      toggleVisibility: !this.state.toggleVisibility
     });
   };
 
   handleSubmit = () => {
     if (verifyEmail(this.state.username)) {
       this.setState({
-        usernameError: true,
+        usernameError: true
       });
     }
     if (verifyLength(this.state.username, 5)) {
       this.setState({
-        passwordError: true,
+        passwordError: true
       });
     }
     if (!this.state.usernameError && !this.state.passwordError) {
       const data = {
         username: this.state.username,
-        password: this.state.password,
+        password: this.state.password
       };
       this.props.loginAction(data);
     }
@@ -158,7 +158,7 @@ class Login extends Component {
 const mapStateToProps = state => {
   return {
     auth: state.authReducer,
-    error: state.errorReducer,
+    error: state.errorReducer
   };
 };
 
